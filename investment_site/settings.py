@@ -24,7 +24,7 @@ TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 SECRET_KEY = 'django-insecure-0n-(0^djog25n2hn!e28-%cpmlv!x(yzsdj2ld^22+#k0j_g-c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
+    
     'channels',
     'django.contrib.admin',
     'django.contrib.auth',

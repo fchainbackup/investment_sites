@@ -30,13 +30,13 @@ class EmailThread(threading.Thread):
     def run(self):
         self.email.send()
 
-def send_activation_email(user, request):
+def send_activation_email(user,password,request):
     current_site = get_current_site(request)
     email_subject = 'Registration Info'
     email_body = render_to_string('account/activate_email.html', {
         'user': user.username,
-        'firstname':user.firstname,
-        'password':user.password,
+        'firstname':user.first_name,
+        'password':password,
         'domain': current_site,
         
     })
@@ -113,17 +113,23 @@ def register_user(request):
         if user_form.is_valid():
             if profile_id is not None:
                 recommended_profile = Profile.objects.get(id=profile_id)
+                password = user_form.cleaned_data['password1']
+                
                 user_reg = user_form.save()
                 registered_user = CustomUser.objects.get(id=user_reg.id)
                 registered_user_profile = Profile.objects.get(user=registered_user)
                 registered_user_profile.recommended_by = recommended_profile.user
                 registered_user_profile.save()
-                send_activation_email(user_reg, request)
+                send_activation_email(user_reg,password,request)
                 messages.success(request,"Created! now login to continue")
                 return redirect('account:login_user')
             else:
+                password = user_form.cleaned_data['password1']
+                
                 user_reg = user_form.save()
-                send_activation_email(user_reg, request)
+                
+                
+                send_activation_email(user_reg,password,request)
                 messages.success(request,"Created! now login to continue")
                 return redirect('account:login_user')
 
