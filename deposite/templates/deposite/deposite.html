@@ -1,0 +1,229 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}
+assetssecurityledger.com - deposit
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'deposite/css/select.css' %}" />
+{% endblock %}
+
+{% block page %}
+Available packages
+{% endblock page%}
+
+{% block content %}
+
+<div class="row g-3 my-2 ">
+    <div class="col-lg-4">
+        <div class="shadow bg-white rounded m-2">
+            <div class="container-fluid text-center h4 p-3">Basic</div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Min-Max</strong>
+                <strong class="">$50.00 - $499.00</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Profit</strong>
+                <strong class="">2% in 24hours</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">duration</strong>
+                <strong class="">24hours</strong>
+            </div>
+            <form method="POST" class="needs-validation">
+                {% csrf_token %}
+                <div class="p-3 d-flex mb-3" style="color: black;">
+                    
+                    <div class="select me-3">
+                        <select name="format" class="form-select" id="format">
+                            <option value="tether">USDT(trc20)</option>
+                            <option value="stellar">XLM(stellar)</option>
+                            <option value="xrp">XRP</option>
+                        </select>
+                    </div>
+    
+                    <div class="flex-grow-1">
+                        <input type="number" class="form-control" id="uname" placeholder="Enter Ammount" name="uname" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                </div>
+                <input type="hidden" name="plan" value="Basic">
+                <div class="container-fluid" align="center"><button class="btn mb-3" style="background: black; color: white;">proceed</button></div>     
+              </form>
+        </div>
+        
+    </div>
+
+
+    <div class="col-lg-4">
+        <div class="shadow bg-white rounded m-2">
+            <div class="container-fluid text-center h4 p-3">Regular</div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Min-Max</strong>
+                <strong class="">$500.00 - $4999.00</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Profit</strong>
+                <strong class="">3% in 24hours</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">duration</strong>
+                <strong class="">2days</strong>
+            </div>
+            <form method="POST" class="needs-validation">
+                {% csrf_token %}
+                <div class="p-3 d-flex mb-3" style="color: black;">
+                    
+                    <div class="select me-3">
+                        <select name="format" class="form-select" id="format">
+                            <option value="tether">USDT(trc20)</option>
+                            <option value="stellar">XLM(stellar)</option>
+                            <option value="xrp">XRP</option>
+                        </select>
+                    </div>
+    
+                    <div class="flex-grow-1">
+                        <input type="number" class="form-control" id="uname" placeholder="Enter Ammount" name="uname" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                </div>
+                <input type="hidden" name="plan" value="Regular">
+                <div class="container-fluid" align="center"><button class="btn mb-3" style="background: black; color: white;">proceed</button></div>     
+              </form>
+        </div>
+        
+    </div>
+
+
+
+    <div class="col-lg-4">
+        <div class="shadow bg-white rounded m-2">
+            <div class="container-fluid text-center h4 p-3">Longterm</div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Min-Max</strong>
+                <strong class="">$5000.00 - $9999.00</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Profit</strong>
+                <strong class="">5% in 24hours</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">duration</strong>
+                <strong class="">30days</strong>
+            </div>
+            <form method="POST" class="needs-validation">
+                {% csrf_token %}
+                <div class="p-3 d-flex mb-3" style="color: black;">
+                    
+                    <div class="select me-3">
+                        <select name="format" class="form-select" id="format">
+                            <option value="tether">USDT(trc20)</option>
+                            <option value="stellar">XLM(stellar)</option>
+                            <option value="xrp">XRP</option>
+                        </select>
+                    </div>
+    
+                    <div class="flex-grow-1">
+                        <input type="number" class="form-control" id="uname" placeholder="Enter Ammount" name="uname" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                </div>
+                <input type="hidden" name="plan" value="Longterm">
+                <div class="container-fluid" align="center"><button class="btn mb-3" style="background: black; color: white;">proceed</button></div>     
+              </form>
+        </div>
+        
+    </div>
+
+    <div class="col-lg-4">
+        <div class="shadow bg-white rounded m-2">
+            <div class="container-fluid text-center h4 p-3">VIP</div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Min-Max</strong>
+                <strong class="">$15000.00 - Unlimited</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Profit</strong>
+                <strong class="">7% in 24hours</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">duration</strong>
+                <strong class="">60days</strong>
+            </div>
+            <form method="POST" class="needs-validation">
+                {% csrf_token %}
+                <div class="p-3 d-flex mb-3" style="color: black;">
+                    
+                    <div class="select me-3">
+                        <select name="format" class="form-select" id="format">
+                            <option value="tether">USDT(trc20)</option>
+                            <option value="stellar">XLM(stellar)</option>
+                            <option value="xrp">XRP</option>
+                        </select>
+                    </div>
+    
+                    <div class="flex-grow-1">
+                        <input type="number" class="form-control" id="uname" placeholder="Enter Ammount" name="uname" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                </div>
+                <input type="hidden" name="plan" value="VIP">
+                <div class="container-fluid" align="center"><button class="btn mb-3" style="background: black; color: white;">proceed</button></div>     
+              </form>
+        </div>
+        
+    </div>
+
+
+    <div class="col-lg-4">
+        <div class="shadow bg-white rounded m-2">
+            <div class="container-fluid text-center h4 p-3" style="color: black;">Ambassadorship</div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Min-Max</strong>
+                <strong class="">$35000.00 - Unlimited</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">Profit</strong>
+                <strong class="">10% in 24hours</strong>
+            </div>
+            <div class="p-3 d-flex justify-content-between mb-3" style="color: black;">
+                <strong class="">duration</strong>
+                <small align="end"><strong class="">6months <p>and monthly allowances/other benefits</p></strong></small>
+            </div>
+            <form method="POST" class="needs-validation">
+                {% csrf_token %}
+                <div class="p-3 d-flex mb-3" style="color: black;">
+                    
+                    <div class="select me-3">
+                        <select name="format" class="form-select" id="format">
+                            <option value="tether">USDT(trc20)</option>
+                            <option value="stellar">XLM(stellar)</option>
+                            <option value="xrp">XRP</option>
+                        </select>
+                    </div>
+    
+                    <div class="flex-grow-1">
+                        <input type="number" class="form-control" id="uname" placeholder="Enter Ammount" name="uname" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                </div>
+                <input type="hidden" name="plan" value="Ambassadorship">
+                <div class="container-fluid" align="center"><button class="btn mb-3" style="background: black; color: white;">proceed</button></div>     
+              </form>
+        </div>
+        
+    </div>
+    
+
+    
+
+</div>
+
+
+{% endblock content%}

@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	
+	
+	
+	
+	<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+  rel="stylesheet"/>
+	
+	
+	
+	
+	
+	
+    <link rel="stylesheet" href="{% static 'dashboard/css/styles.css' %}" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <!-- Custom styles -->
+    
+</head>
+<body>
+    <!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+  <nav
+       id="main-navbar"
+       class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+       >
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#sidebarMenu"
+              aria-controls="sidebarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+        <img
+             src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
+             height="25"
+             alt=""
+             loading="lazy"
+             />
+      </a>
+      <!-- Search form -->
+      <a
+           class="btn btn-warning text-dark d-none d-md-flex w-auto my-auto"
+           aria-current="true"
+           
+           href="#"
+           aria-expanded="true"
+           
+           >
+           <span>Secure assets</span>
+        </a>
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+        
+        </li>
+
+        <!-- Icon -->
+        <li class="nav-item">
+          <a class="nav-link me-3 me-lg-0" href="#">
+            <i class="fas fa-fill-drip"></i>
+          </a>
+        </li>
+        <!-- Icon -->
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link" href="#">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+
+        <!-- Icon dropdown -->
+        
+
+        <!-- Avatar -->
+        <li class="nav-item dropdown">
+          <a
+             class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+             href="#"
+             id="navbarDropdownMenuLink"
+             role="button"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+             >
+             <i class="bi bi-person-circle"></i>
+          </a>
+          <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+              >
+            <li><a class="dropdown-item" href="#">My profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+<div class="container-fluid">
+  <div class="row">
+    <nav
+       id="sidebarMenu"
+       class="collapse d-lg-block sidebar collapse bg-white"
+       >
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <!-- Collapse 1 -->
+        <a
+           class="list-group-item list-group-item-action py-2 ripple active"
+           aria-current="true"
+           
+           href="#"
+           aria-expanded="true"
+           
+           >
+           <i class="fas fa-home fa-fw me-3"></i><span>Dashboard</span>
+        </a>
+
+        <a
+           class="list-group-item list-group-item-action py-2 ripple"
+           aria-current="true"
+           
+           href="#"
+           aria-expanded="true"
+           
+           >
+           <i class="fas fa-lock fa-fw me-3"></i><span>Secure assets</span>
+        </a>
+
+        <a
+           class="list-group-item list-group-item-action py-2 ripple"
+           aria-current="true"
+           data-mdb-toggle="collapse"
+           href="#collapseExample1"
+           aria-expanded="true"
+           aria-controls="collapseExample1"
+           >
+           <i class="fas fa-briefcase fa-fw me-3"></i><span>Withdraw Funds</span>
+        </a>
+        <!-- Collapsed content -->
+        <ul
+            id="collapseExample1"
+            class="collapse show list-group list-group-flush"
+            >
+          <li class="list-group-item py-1">
+            <a href="#" class="text-reset">Withdrawal</a>
+          </li>
+          <li class="list-group-item py-1">
+            <a href="#" class="text-reset">My Withdrawals</a>
+          </li>
+        
+        </ul>
+        <!-- Collapse 1 -->
+
+        <a
+        class="list-group-item list-group-item-action py-2 ripple"
+        aria-current="true"
+        
+        href="#"
+        aria-expanded="true"
+        
+        >
+        <i class="fas fa-lock fa-fw me-3"></i><span>Transactions</span>
+        </a>
+
+        <!-- Collapse 2 -->
+        <a
+           class="list-group-item list-group-item-action py-2 ripple"
+           aria-current="true"
+           data-mdb-toggle="collapse"
+           href="#collapseExample2"
+           aria-expanded="true"
+           aria-controls="collapseExample2"
+           >
+           
+          <i class="fas fa-money-check-alt fa-fw me-3"></i
+            ><span>Invest</span>
+        </a>
+        <!-- Collapsed content -->
+        <ul
+            id="collapseExample2"
+            class="collapse list-group list-group-flush"
+            >
+          <li class="list-group-item py-1">
+            <a href="" class="text-reset">Suscribe to a plan</a>
+          </li>
+          <li class="list-group-item py-1">
+            <a href="" class="text-reset">My investment</a>
+          </li>
+        </ul>
+        <!-- Collapse 2 -->
+        <a
+        class="list-group-item list-group-item-action py-2 ripple"
+        aria-current="true"
+        
+        href="#"
+        aria-expanded="true"
+        
+        >
+        <i class="fas fa-users fa-fw me-3"></i><span>Refer users</span>
+        </a>
+
+        <a
+        class="list-group-item list-group-item-action py-2 ripple"
+        aria-current="true"
+        
+        href="#"
+        aria-expanded="true"
+        
+        >
+        <i class="fas fa-question-circle fa-fw me-3"></i><span>Support</span>
+        </a>
+
+        
+
+      </div>
+    </div>
+  </nav>
+
+    <main style="margin-top: 58px" class="col-md-12 ms-sm-auto col-lg-9 col-xl-9 col-xxl-10 px-md-3" >
+      <!-- Jumbotron -->
+      
+        {% block content %}
+  
+        {% endblock content%}
+      
+      
+      <!-- Jumbotron -->  
+  </main>
+  </div>
+</div>
+
+<!--Main layout-->
+
+<!--Main layout-->
+    <!-- MDB -->
+	<!-- MDB -->
+<script type="text/javascript" src="{% static 'dashboard/js/scripts.js' %}"></script>  
+
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js">
+</script>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    
+    
+</body>
+</html>
+

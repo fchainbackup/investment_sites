@@ -1,0 +1,117 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}
+assetssecurityledger.com - transactions
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="{% static 'deposite/css/table_style.css' %}" />
+{% endblock %}
+
+{% block page %}
+My-investments
+{% endblock page%}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+
+</form>
+<div class="container-fluid mt-3">
+    <table id="example" class="display nowrap" style="background: white;">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>User plan</th>
+                <th>Amount</th>
+                <th>Profit percent</th>
+                <th>Durarion(hours)</th>
+                <th>Transaction mode</th>
+                <th>Trade moode</th>
+                <th>Profit</th>
+                <th>Date created</th>
+                
+            </tr>
+        
+        </thead>
+        <tbody id="dates" today-date = "{{todays_date|safe}}">
+            {% if transaction_found == "yes" %} 
+            {% for investment in my_investment %}
+            <tr>
+                <td class="text-dark investments" investment-id="{{investment.id}}"
+                investment-amount="{{investment.ammount}}"
+                investment-percent="{{investment.profit_percent}}"
+                investment-date_of_trade="{{investment.date_of_trade|safe}}"
+                investment-date_of="{{investment.date_of_trade|safe}}"
+                investment-trade_mode="{{investment.trade_mode}}"
+                investment-time="{{investment.time_of_trade}}"
+                
+                
+                >{{ forloop.counter }}</td>
+                <td class="text-dark ">{{investment.plan}}</td>
+                <td class="text-dark ">{{investment.ammount}}$</td>
+                <td class="text-dark ">{{investment.profit_percent}}%</td>
+                <td class="text-dark ">{{investment.time_of_trade}}hours</td>
+                <td class="text-dark ">{{investment.transaction_mode}}</td>
+                <td class="text-dark ">
+                    {% if investment.trade_mode == "running" %}
+                        <span class="bg-success p-2 rounded">running</span>
+                    {% elif investment.trade_mode == "completed"  %}
+                        <span class="bg-secondary p-2 rounded">completed</span>
+                    {% else %}
+                    <span class="bg-warning p-2 rounded">pending</span>
+                    {% endif %}
+                </td>
+                <td class="text-dark profit{{investment.id}}" id="profit{{investment.id}}">{{investment.profit}}$</td>
+                <td class="text-dark ">{{investment.date_created}}</td>
+
+            </tr>
+            {% endfor %}
+        {% elif transaction_found == "no" %}
+            <tr>
+                <td  class=" p-4" colspan="9">No data available in table</td>
+                <td class="text-dark "></td>
+                <td class="text-dark "></td>
+                <td class="text-dark "></td>
+                <td class="text-dark "></td>
+                <td class="text-dark "></td>
+                <td class="text-dark "></td>
+                <td class="text-dark "></td>
+                <td class="text-dark "></td>
+            </tr>
+ 
+        {% endif %}
+            
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock content%}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="{% static 'deposite/js/investments.js' %}" defer></script>
+<script>
+    $(document).ready(function () {
+    $('#example').DataTable({
+        scrollY: 200,
+        scrollX: true,
+    });
+});
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

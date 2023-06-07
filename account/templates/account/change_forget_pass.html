@@ -1,0 +1,12 @@
+{% autoescape off %}
+Hi {{user}},
+
+Please use the link below to reset your password.
+
+http://{{domain}}{% url 'account:reset_pass' uidb64=uid token=token %}
+
+Contact us immediately if you did not authorize this registration.
+
+Thank you. 
+
+{% endautoescape %}

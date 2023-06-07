@@ -1,0 +1,400 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>assetssecurityledger.com - Secure and Manage Sssets</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Cryptocurrency Landing Page Template">
+	<meta name="keywords" content="cryptocurrency, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="{% static 'img/logo.png' %}" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}"/>
+	
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+   		
+<script src="//code.tidio.co/ldlyohkeqt7kwjovkmu7wcigykpwyuab.js" async></script>
+</head>
+<body>
+
+    {% url 'account:login_user' as login %}
+	{% url 'account:register_user' as signup %}
+	{% url 'account:home_page' as home %}
+	{% url 'account:about_page' as about %}
+	{% url 'account:contact_page' as contact %}
+	{% url 'account:faq_page' as faq %}
+	{% url 'account:tc_page' as tc %}
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section clearfix" style="background-color:#1b8da0;">
+        <div id="google_translate_element" class="" align="center"></div>
+		<div class="container-fluid">
+			<div class="d-flex justify-content-between">
+				<a href="{{home}}" class="site-logo">
+					<div class="d-flex">
+						<img src="{% static 'img/logo.png' %}" style="width: 50px; height: 50px;" alt="">
+						<h4 class="mt-1 text-dark">assetssecurityledger</h4>
+					</div>
+					
+				</a>
+
+				<div class="responsive-bar"><i class="fa fa-bars"></i></div>
+			</div>
+			
+			
+			
+			<a href="{{signup}}" class="site-btn">Get Started</a>
+			<nav class="main-menu">
+				<ul class="menu-list">
+					<li><a href="{{home}}">Home</a></li>
+					<li><a href="{{about}}">About</a></li>
+					<li><a href="{{faq}}">FAQ</a></li>
+					<li><a href="{{tc}}">Terms & Conditions</a></li>
+					<li><a href="{{signup}}">SignUp</a></li>
+					<li><a href="{{login}}">Login</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Page info section -->
+	<section class="page-info-section">
+		<div class="container">
+			<h2 style="color:white;">FAQ</h2>
+			<div class="site-beradcamb">
+				<a href="">Home</a>
+				<span><i class="fa fa-angle-right"></i> FAQ</span>
+			</div>
+		</div>
+	</section>
+	<!-- Page info end -->
+
+
+	<!-- Blog section -->
+	<section class="single-blog-page spad">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="blog-item bi-feature">
+						
+						<div class="blog-text">
+		
+							<div class="section-title">
+            <span>Faq</span>
+            <h2>Frequently Asked Questions</h2>
+            <p></p>
+        </div>
+
+        <div class="faq-accordion-content">
+            <ul class="accordion">
+                <li class="accordion-item">
+                    <a class="accordion-title active" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Is signup with assetssecurityledger.com free of charge ?
+                    </a>
+
+                    <p class="accordion-content show">Yes. Sign Up with assetssecurityledger.com is completely free of charge.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        How do I open my assetssecurityledger.com Account?
+                    </a>
+
+                    <p class="accordion-content">It's quite easy and convenient. Follow this link, fill in the registration form and then press "Registration Now".</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        What if I can't log into my account because I forgot my password ?
+                    </a>
+
+                    <p class="accordion-content">Click forgot password link, type your username or e-mail and you'll receive your account information.</p>
+                </li>
+
+              <!--  <li class="accordion-item">
+                   <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        What are your rules on réinvestment and compounding in a Portfolio?
+                    </a>
+
+                    <p class="accordion-content">A- On réinvestment and compounding, investors are allowed within this stated limits on the 3 available Portfolios below;<br>
+                        1. Treasure Portfolio: investors are allowed to compound with a single deposit 2times only in a month.<br>
+                        2. Audit Miner portfolio: Investors can réinvest and compound with a single deposit for a Period of 1 month only.<br>
+
+                        Promax Portfolio: Investors are allowed to compound and réinvest for a period of 2 months.
+                    </p>
+
+                </li> -->
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        What payment systems does assetssecurityledger.com work with?
+                    </a>
+
+                    <p class="accordion-content">We accept XLM security section and XRP security section. <br>
+                      
+                        You can open a Litecoin account here: https://www.coinbase.com and https://www.binance.com <br>
+                        You can open a ethereum account here: https://www.coinbase.com and https://www.binance.com </p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        How to buy Bitcoin(Cryptocurrency) Online?
+                    </a>
+
+                    <p class="accordion-content">You can buy Bitcoin(Cryptocurrency) from exchanges, including Coinbase.com, binance.com, Localbitcoins.com, coinmama.com and more..</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        How can I invest with assetssecurityledger.com?
+                    </a>
+
+                    <p class="accordion-content">To make a investment you must first become a member of assetssecurityledger.com. Once you are signed up, you can make your first deposit. All deposits must be made through the Members Area. You can login using the member username and password you receive when signup.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        How long does it take for my deposit to be added to my account?
+                    </a>
+
+                    <p class="accordion-content">Your account will be updated as fast, as you deposit.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Does a daily profit paid directly to my e-curreny account?
+                    </a>
+
+                    <p class="accordion-content">No, profits are gathered on your assetssecurityledger.com account and you can withdraw them anytime.</p>
+                </li>
+
+                <!--<li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Can I make several deposits to f-chainiso2022.com account?
+                    </a>
+
+                    <p class="accordion-content">Yes you can.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Is principal included in profit?
+                    </a>
+
+                    <p class="accordion-content">Yes, principal is included with daily profit.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Is daily profit available all week long?
+                    </a>
+
+                    <p class="accordion-content">Yes, daily profit is available after 30 days.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        What is the minimum and the maximum amount to invest?
+                    </a>
+
+                    <p class="accordion-content">The minimum amount to invest is $ 250 and the maximum is no limit.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        What is the minimum and maximum amount that I can withdraw?
+                    </a>
+
+                    <p class="accordion-content">The minimum withdrawal is $50.</p>
+                </li>
+-->
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Can I make a contribution through one payment system, and the output from the another one?
+                    </a>
+
+                    <p class="accordion-content">No, payments are made through the same payment system, to which the contribution was made.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        How can I get paid from assetssecurityledger.com?
+                    </a>
+
+                    <p class="accordion-content">In your account, there will be added money available for withdrawal. Order them for withdrawal and they will go into your wallet.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        After I make a withdrawal request, when will the funds be available on my e-currency or Cryptocurrency account?
+                    </a>
+
+                    <p class="accordion-content">All of our withdrawals are instant. but if the withdraw meet payment processors issue, server or technial problem or some other issue, it can take up to 24 hours.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        What could be the reason for the delay more than 48 hours ?
+                    </a>
+
+                    <p class="accordion-content">There are several reasons for failure to pay:The e-currency account number, which is to be specified during registration, is missing or incorrect.You have balance limit imposed on your e-currency account. Please contact e-currency provider to sort this problem out.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        May I open several accounts in assetssecurityledger.com?
+                    </a>
+
+                    <p class="accordion-content">No. If we find that one member has more that one account, the entire funds will be frozen.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Do you have an affiliate program? Can I make money without investing anything?
+                    </a>
+
+                    <p class="accordion-content">Yes, we have developed a referral program. You will receive  10% Ref commission on deposits from members you invited to the project. To do this, they must enroll in your account. Your referral link will be available in the Personal Area after registration.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        How do I join the referral program?
+                    </a>
+
+                    <p class="accordion-content">You can find your referral link in your assetssecurityledger.com account. Please log in and go to "dashboard" section.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        Can I recommend myself for commission and bonus ?
+                    </a>
+
+                    <p class="accordion-content">No, recommending yourself is deemed as a kind of cheating and extremely forbidden in our referral program. You will not get any commission or bonus by recommending yourself. Besides, we may suspend your accounts.</p>
+                </li>
+
+                <li class="accordion-item">
+                    <a class="accordion-title" href="javascript:void(0)">
+                        <i class="bx bx-chevron-down"></i>
+                        How can I contact your support?
+                    </a>
+
+                    <p class="accordion-content">You can contact our support through clicking the “Contact Us” link. We offer support through Contact Form, and E-mail.</p>
+                </li>
+            </ul>
+        </div>
+
+							
+						
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!-- Blog section end -->
+
+
+	<!-- Newsletter section -->
+	
+	<!-- Newsletter section -->
+	<section class="newsletter-section gradient-bg" style="background:#1b8da0;">
+		<div class="container text-white">
+			<div class="row">
+				<div class="col-lg-7 newsletter-text">
+					<h2>Subscribe to our Newsletter</h2>
+					<p>Sign up for our weekly industry updates, insider perspectives and in-depth market analysis.</p>
+				</div>
+				<div class="col-lg-5 col-md-8 offset-lg-0 offset-md-2">
+					<form class="newsletter-form">
+						<input type="text" placeholder="Enter your email">
+						<button>Get Started</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Newsletter section end -->
+
+
+	<!-- Footer section -->
+	<footer class="footer-section">
+		<div class="container">
+			
+			<div class="footer-bottom">
+				<div class="row">
+					<div class="col-lg-4 store-links text-center text-lg-left pb-3 pb-lg-0">
+						<a href=""><img src="{% static 'img/logo.png' %}" alt="" style="width: 70px; height: 70px;" class="mr-2"></a>
+						
+					</div>
+					<div class="col-lg-8 text-center text-lg-right">
+						<ul class="footer-nav">
+							<li><a href="{{signup}}">Sign up</a></li>
+							<li><a href="{{contact}}">Contact</a></li>
+							<li><a href="{{about}}">About us </a></li>
+							<li><a href="mailto:support@assetssecurityledger.com">support@assetssecurityledger.com</a></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+</body>
+</html>

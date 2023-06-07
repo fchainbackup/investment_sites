@@ -1,0 +1,221 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}
+assetssecurityledger.com - Dashboard
+{% endblock %}
+
+{% block page %}
+  Dashboard
+{% endblock page%}
+
+{% block secure %}
+
+ <!-- secure wallet modal information -->
+ <div class="modal fade" id="SecureModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+  
+       <div class="col-10 mx-auto mt-4">
+       <div class="mb-3 text-center"><i class="fas fa-info-circle fa-4x"></i></div>
+           <div class="text-center">
+              <h3>NOTICE!</h3>
+              <p class="text-secondary">Welcome to assetssecurityledger.com, for our new members Secure your digital assets here by adding your WalletPhrase here!
+  
+                Back up your Digital assets and fund for the global event with assetssecurityledger to prevent atacks from all sorts of hackers.</p>
+          </div>
+       </div>
+        <div class="mx-auto mb-3 mt-1">
+          <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="modal">Close</button><a href="{% url 'secure_assets:secure_asset' %}" class="btn btn-success ms-1">Secure now</a>
+        </div>
+        
+  
+      </div>
+    </div>
+  </div>
+  
+{% endblock secure%}
+
+{% block content %}
+<div class="row g-3 my-2">
+    <div class="col-12 col-md-6 col-lg-3">
+
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-dollar-sign fs-4 fs-4 text-white border rounded bg-success p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>${{user_dashboard.account_balance|floatformat}}</strong></h5>
+                <p class="fs-7">Account Balance</p>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-success p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>${{user_dashboard.total_profit|floatformat}}</strong></h5>
+                <p class="fs-7">Total Profit</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-primary p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.usdt|floatformat}}</strong> -> <small>${{usdt|floatformat:2}}</small></h5> 
+                <p class="fs-7">USDT tether</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-primary p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.xlm|floatformat}}</strong> -> <small>${{xlm|floatformat:2}}</small></h5> 
+                <p class="fs-7">XLM stella</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-primary p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.xrp|floatformat}}</strong> -> <small>${{xrp|floatformat:2}}</small></h5>
+                <p class="fs-7">XRP</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+        
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-info p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>${{user_dashboard.total_referal_bonus|floatformat}}</strong></h5>
+                <p class="fs-7">Total Referral Bonus</p>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-success p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>${{user_dashboard.total_bonus|floatformat}}</strong></h5>
+                <p class="fs-7">Total Bonus</p>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-warning p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.total_investment_plans|floatformat}}</strong></h5>
+                <p class="fs-7">Total Investment Plans</p>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-success p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.total_active_investment_plans}}</strong></h5>
+                <p class="fs-7">Active Investment Plans</p>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-danger p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>${{user_dashboard.total_withdrawal}}</strong></h5>
+                <p class="fs-7">Total Withdrawals</p>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+<div class="col-12 mx-auto">
+    <div class="m-3 p-4">
+        <p class="text-center">You can refer users by sharing your referral link:</p>
+        <div class="mb-3 input-group">
+            <input type="text" class="form-control myInput readonly text-dark bg-light" value="{{referral}}" id="myInput_copy" readonly>
+            
+                <button class="btn btn-outline-secondary " onclick="myFunction_copy()" type="button" id="button-addon2"><i class="fas fa-copy"></i></button>
+            
+            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="tradingview-widget-container" style="height:610px">
+        <div id="tradingview_7f63e" style="height:610px"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+        new TradingView.widget(
+        {
+        "autosize": true,
+        "symbol": "NASDAQ:AAPL",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "light",
+        "style": "1",
+        "locale": "en",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "withdateranges": true,
+        "hide_side_toolbar": false,
+        "allow_symbol_change": true,
+        "details": true,
+        "calendar": true,
+        "container_id": "tradingview_7f63e"
+      }
+        );
+        </script>
+      </div>
+      <!-- TradingView Widget END -->
+          <!-- TradingView Widget END -->
+
+
+</div>
+<!-- TradingView Widget BEGIN -->
+
+
+
+
+{% endblock content%}

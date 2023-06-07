@@ -1,0 +1,18 @@
+.asteriskField{
+color: red;
+}
+
+.auth{
+
+    padding: 60px 0;
+    padding-top: 60px;
+    padding-right: 0px;
+    padding-bottom: 60px;
+    padding-left: 0px;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+body{
+    font-family: 'Ubuntu', sans-serif;
+}

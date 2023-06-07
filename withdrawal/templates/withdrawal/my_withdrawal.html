@@ -1,0 +1,89 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}
+assetssecurityledger.com - withdrawals
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="{% static 'css/table_withdraw.css' %}"/>
+{% endblock %}
+
+{% block page %}
+My-withdrawals
+{% endblock page%}
+
+{% block content %}
+<div class="container-fluid mt-3">
+    <table id="example1" class="display nowrap" style="background: white;">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Amount</th>
+                <th>Cryptocurrency</th>
+                <th>Address</th>
+                <th>Transaction mode</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+          {% if transaction_found == "yes" %} 
+          {% for withdraw in my_withdraw %}
+          <tr>
+              <td class="text-dark ">{{ forloop.counter }}</td>
+              <td class="text-dark ">{{withdraw.ammount}}$</td>
+              <td class="text-dark ">{{withdraw.crypto_for_pay}}</td>
+              <td class="text-dark ">{{withdraw.crypto_address}}</td>
+              <td class="text-dark ">
+                {% if withdraw.payment_mode == "pending" %}
+                        <span class="rounded p-2 bg-warning">pending</span>
+                    {% else %}
+                    <span class="rounded p-2 bg-success">approved</span>
+                    {% endif %}
+              </td>
+
+          </tr>
+          {% endfor %}
+      {% elif transaction_found == "no" %}
+          <tr>
+              <td class=" p-4" colspan="9">No data available in table</td>
+              <td class="text-dark "></td>
+              <td class="text-dark "></td>
+              <td class="text-dark "></td>
+              <td class="text-dark "></td>
+          </tr>
+
+      {% endif %}
+            
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock content%}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+    $('#example1').DataTable({
+        scrollY: 200,
+        scrollX: true,
+    });
+});
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

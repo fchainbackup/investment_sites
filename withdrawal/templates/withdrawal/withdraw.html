@@ -1,0 +1,66 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}
+assetssecurityledger.com - withdrawal
+
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block page %}
+User withdrawal
+{% endblock page%}
+
+{% block content %}
+{% if account_balance == "available" %}
+<div class="col col-md-8 col-xl-8 col-xxl-6 bg-white mx-auto shadow rounded">
+    <div class="mt-3 p-2">
+        <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-flex mb-3 form-group">
+                    
+                        <div class="select me-3 form-group">
+                            <select name="format" class="form-select" id="format">
+                                <option value="usdt">USDT</option>
+                                <option value="xlm">XLM</option>
+                                <option value="xrp">XRP</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group flex-grow-1">
+                            <input type="text" class="form-control text-dark bg-light" id="uname" placeholder="network" name="network" required>
+                            
+                        </div>
+                    </div>
+                         
+                    <div class="form-group">
+                        <label class="text-dark">Enter Amount to withdraw:</label>
+                        <input class="form-control text-dark bg-light" placeholder="Enter Amount" type="number" name="amount" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label class="text-dark">Address:</label>
+                        <input class="form-control text-dark bg-light" placeholder="Enter your cryptocurrency address" type="text" name="address" required>
+                    </div>
+                                                                    
+                    <div class="form-group mt-3">
+                        <button class="btn" style="background: black; color: white;" type='submit'>Complete Request</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+{% elif account_balance == "not_available" %}
+
+<div class="col bg-white mx-auto shadow rounded">
+    <div class="mt-3 p-2 text-center">
+        <p class="text-secondary"> Sorry, your account balance is insufficient for this request..... </p>
+    </div>
+</div>
+
+{% endif %}
+{% endblock content%}

@@ -1,0 +1,61 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}
+complete transaction
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block page %}
+complete Deposite
+{% endblock page%}
+
+{% block content %}
+{% if session == "available" %}
+<div class="col col-md-8 col-xl-8 col-xxl-6 bg-white mx-auto shadow rounded">
+    <div class="m-3 p-4">
+        <div class="mb-5"><p>Complete your payment of <strong>{{amount_of_crypto}} {{pay_info.crypto}}</strong> using your selected payment method. Screenshot and upload the proof of payment</p></div>
+        <div class="mb-3">
+            <h4 class="text-dark">{{pay_info.crypto}} Address:</h4>
+        </div>
+        <div class="form-group">
+            <div class="mb-3 input-group">
+                <input type="text" class="form-control myInput readonly text-dark bg-light" value="{{pay_info.crypto_address}}" id="myInput_copy" readonly>
+                
+                    <button class="btn btn-outline-secondary" onclick="myFunction_copy()" type="button" id="button-addon2"><i class="fas fa-copy"></i></button>
+                
+                
+            </div>
+            <h5><small class="text-dark"><strong>Network Type:</strong> {{pay_info.network}}</small> </h5>
+        </div>
+
+        <div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group mt-3">
+                    <small class="text-dark">Upload Payment proof after payment.</small>
+                    <input type="file" name="proof" class="form-control col-lg-4 bg-light text-dark" required>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-dark">Submit payment</button>
+                </div> 
+            </form>
+        </div>
+
+    </div>
+</div>
+{% elif session == "not_available" %}
+
+<div class="col-8 bg-white mx-auto shadow rounded">
+    <div class="m-3 p-4">
+        <h5 class="text-mute"> No transaction found.... </h5>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock content%}

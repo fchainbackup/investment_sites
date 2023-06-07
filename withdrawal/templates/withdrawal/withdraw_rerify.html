@@ -1,0 +1,102 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block title %}
+withdrawal-verification
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block page %}
+OTP Verification
+{% endblock page%}
+
+{% block content %}
+{% if session == "available" %}
+<div class="col col-md-8 col-xl-8 col-xxl-6 bg-white mx-auto shadow rounded">
+    <div class="m-2 p-2">
+        <div class="card-body">
+            <div class="p-2 m-2 text-dark text-center rounded" style="background-color: rgb(241, 241, 241);">
+                email being verified<br>
+                <strong>{{user_email}}</strong>
+            </div>
+            <div class="m-3 text-center text-dark"><strong>Enter OTP Received</strong></div>
+            <div class="col-8 mx-auto">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" name="otp" required>
+                        <button class="btn btn-success">Verify OTP</button>                    
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="p-2 m-2 text-dark text-center rounded mt-4" style="background-color: rgb(240, 255, 255);">
+                <p>Have not recieved OTP for more than 3 minutes?<button style="text-decoration: None;" class="btn btn-link mb-1" id="btn_send_otps">Resend OTP</button></p>
+                <a href="{% url 'withdrawal:user_withdraw' %}" style="text-decoration: None;"><small class="text-secondary">Cancel verification and go back</small></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% elif session == "not_available" %}
+
+<div class="col-8 bg-white mx-auto shadow rounded">
+    <div class="m-3 p-4">
+        <h5 class="text-mute"> No transaction found.... </h5>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock content%}
+
+{% block script %}
+<script>
+    console.log("otp sent ...............")
+    const otp_button = document.getElementById("btn_send_otps");
+    const messages = document.getElementById("message");
+    console.log(messages)
+   
+   function send_otp(){
+    $.ajax({
+            type: 'GET',
+            url: "{% url 'withdrawal:send_otp' %}",
+            data: {"send_otp": "send otp"},
+            success: function (response) {
+                // if not valid user, alert the user
+                response["sent"]
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
+    }
+    
+
+    
+    otp_button.addEventListener('click',()=>{
+       console.log("otp sent ...............")
+       send_otp();
+       // set button to inactive
+       otp_button.className = "btn btn-link mb-1 disabled"
+       const alert_div = document.createElement("div")
+       alert_div.className = "alert alert-success alert-dismissible fade show"
+       alert_div.innerHTML = `<button type="button" class="btn-close" data-bs-dismiss="alert"></button> OTP sent successfully`
+       messages.appendChild(alert_div)
+       function otp_alert(){
+        alert_div.remove();
+        // set button back to active
+        otp_button.className = "btn btn-link mb-1"
+       }
+    
+       connecting_time_out=setTimeout(otp_alert,180000);
+
+        
+    })
+    
+</script>
+{% endblock %}
