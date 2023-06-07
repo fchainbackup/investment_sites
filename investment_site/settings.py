@@ -108,10 +108,10 @@ ASGI_APPLICATION = 'investment_site.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'somti',
+        'NAME': 'invester',
         'USER':"postgres",
         'PASSWORD':"emeson419619",
-        'HOST':'investing.cmrqertplweh.eu-north-1.rds.amazonaws.com',
+        'HOST':'database-1.cmrqertplweh.eu-north-1.rds.amazonaws.com',
         'PORT':5432,
     }
 }
