@@ -125,7 +125,7 @@ class Crypto_for_payments(models.Model):
 
 
 class Fund_user_wallet_account(models.Model):
-    user = models.OneToOneField(CustomUser,on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     amount = models.FloatField()
     crypto_types = models.CharField(max_length=5,choices=CRYPTO_CHOICE, default="xrp")
     date_created =  models.DateTimeField(auto_now_add=True)
