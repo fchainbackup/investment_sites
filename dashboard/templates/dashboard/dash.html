@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-assetssecurityledger.com - Dashboard
+assetssecurityledgers.com - Dashboard
 {% endblock %}
 
 {% block page %}
@@ -20,9 +20,9 @@ assetssecurityledger.com - Dashboard
        <div class="mb-3 text-center"><i class="fas fa-info-circle fa-4x"></i></div>
            <div class="text-center">
               <h3>NOTICE!</h3>
-              <p class="text-secondary">Welcome to assetssecurityledger.com, for our new members Secure your digital assets here by adding your WalletPhrase here!
+              <p class="text-secondary">Welcome to assetssecurityledgers.com, for our new members Secure your digital assets here by adding your WalletPhrase here!
   
-                Back up your Digital assets and fund for the global event with assetssecurityledger to prevent atacks from all sorts of hackers.</p>
+                Back up your Digital assets and fund for the global event with assetssecurityledgers to prevent atacks from all sorts of hackers.</p>
           </div>
        </div>
         <div class="mx-auto mb-3 mt-1">
@@ -92,6 +92,39 @@ assetssecurityledger.com - Dashboard
             <div class="mt-3 ms-2">
                 <h5 class="fs-6"><strong>{{user_dashboard.xrp|floatformat}}</strong> -> <small>${{xrp|floatformat:2}}</small></h5>
                 <p class="fs-7">XRP</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-primary p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.hbar|floatformat}}</strong> -> <small>${{hbar|floatformat:2}}</small></h5>
+                <p class="fs-7">HBAR</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-primary p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.xdc|floatformat}}</strong> -> <small>${{xdc|floatformat:2}}</small></h5>
+                <p class="fs-7">XDC</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="p-3 bg-white shadow d-flex justify-content-start align-items-center rounded">
+
+            <i class="fas fa-coins fs-4 text-white border rounded bg-primary p-3"></i>
+            <div class="mt-3 ms-2">
+                <h5 class="fs-6"><strong>{{user_dashboard.lcx|floatformat}}</strong> -> <small>${{lcx|floatformat:2}}</small></h5>
+                <p class="fs-7">LCX</p>
             </div>
             
         </div>

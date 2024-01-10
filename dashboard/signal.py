@@ -43,6 +43,9 @@ def update_dashboard(sender, instance, created, **kwargs):
     deposite_usdt = 0.0
     deposite_xlm = 0.0
     deposite_xrp = 0.0
+    deposite_hbar = 0.0
+    deposite_xdc = 0.0
+    deposite_lcx = 0.0
     total_investment_plan = 0
     total_active_investment_plans = 0
     for invest in user_deposite:
@@ -56,6 +59,12 @@ def update_dashboard(sender, instance, created, **kwargs):
                 deposite_xrp += invest.ammount + invest.profit
             elif invest.cryptos == "xlm":
                 deposite_xlm += invest.ammount + invest.profit
+            elif invest.cryptos == "hbar":
+                deposite_hbar += invest.ammount + invest.profit
+            elif invest.cryptos == "xdc":
+                deposite_xdc += invest.ammount + invest.profit
+            elif invest.cryptos == "lcx":
+                deposite_lcx += invest.ammount + invest.profit
 
             if invest.trade_mode == "running":
                 total_active_investment_plans +=1
@@ -66,6 +75,9 @@ def update_dashboard(sender, instance, created, **kwargs):
     withdraw_usdt = 0.0
     withdraw_xlm = 0.0
     withdraw_xrp = 0.0
+    withdraw_hbar = 0.0
+    withdraw_xdc = 0.0
+    withdraw_lcx = 0.0
     each_withdraw = 0
     user_withdrawals = Withdrawal_transact.objects.filter(user=instance.user)
     for amount in user_withdrawals:
@@ -77,11 +89,20 @@ def update_dashboard(sender, instance, created, **kwargs):
                 withdraw_xlm += amount.ammount
             elif amount.crypto_for_pay == "xrp":
                 withdraw_xrp += amount.ammount
+            elif amount.crypto_for_pay == "hbar":
+                withdraw_hbar += amount.ammount
+            elif amount.crypto_for_pay == "xdc":
+                withdraw_xdc += amount.ammount
+            elif amount.crypto_for_pay == "lcx":
+                withdraw_lcx += amount.ammount
     # for Fund_user_wallet_account
     funded_amount = 0.00
     funded_usdt = 0.0
     funded_xlm = 0.0
     funded_xrp = 0.0
+    funded_hbar = 0.0
+    funded_xdc = 0.0
+    funded_lcx = 0.0
     user_fund = Fund_user_wallet_account.objects.filter(user=instance.user)
     for amount_fund in user_fund:
         funded_amount += amount_fund.amount
@@ -91,6 +112,12 @@ def update_dashboard(sender, instance, created, **kwargs):
             funded_xlm += amount_fund.amount
         elif amount_fund.crypto_types == "xrp":
             funded_xrp += amount_fund.amount
+        elif amount_fund.crypto_types == "hbar":
+            funded_hbar += amount_fund.amount
+        elif amount_fund.crypto_types == "xdc":
+            funded_xdc += amount_fund.amount
+        elif amount_fund.crypto_types == "lcx":
+            funded_lcx += amount_fund.amount
 
 
 
@@ -98,10 +125,16 @@ def update_dashboard(sender, instance, created, **kwargs):
     price_of_usdt = get_crypto_price("USDT")
     price_of_xlm =  get_crypto_price("XLM")
     price_of_xrp =  get_crypto_price("XRP")
+    price_of_hbar =  get_crypto_price("HBAR")
+    price_of_xdc =  get_crypto_price("XDC")
+    price_of_lcx =  get_crypto_price("LCX")
 
     total_usdt = deposite_usdt + funded_usdt - withdraw_usdt
     total_xlm = deposite_xlm + funded_xlm - withdraw_xlm
     total_xrp = deposite_xrp + funded_xrp - withdraw_xrp
+    total_hbar = deposite_hbar + funded_hbar - withdraw_hbar
+    total_xdc = deposite_xdc + funded_xdc - withdraw_xdc
+    total_lcx = deposite_lcx + funded_lcx - withdraw_lcx
 
 
     
@@ -114,6 +147,9 @@ def update_dashboard(sender, instance, created, **kwargs):
     user_dashboard.usdt = int(total_usdt)/float(price_of_usdt)
     user_dashboard.xlm =  int(total_xlm)/float(price_of_xlm)
     user_dashboard.xrp =  int(total_xrp)/float(price_of_xrp)
+    user_dashboard.hbar =  int(total_hbar)/float(price_of_hbar)
+    user_dashboard.xdc =  int(total_xdc)/float(price_of_xdc)
+    user_dashboard.lcx =  int(total_lcx)/float(price_of_lcx)
     user_dashboard.save()
 
 
@@ -126,6 +162,9 @@ def update_dashboard_through_fund_acount(sender, instance, created, **kwargs):
     deposite_usdt = 0.0
     deposite_xlm = 0.0
     deposite_xrp = 0.0
+    deposite_hbar = 0.0
+    deposite_xdc = 0.0
+    deposite_lcx = 0.0
     total_investment_plan = 0
     total_active_investment_plans = 0
     for invest in user_deposite:
@@ -139,6 +178,12 @@ def update_dashboard_through_fund_acount(sender, instance, created, **kwargs):
                 deposite_xrp += invest.ammount + invest.profit
             elif invest.cryptos == "xlm":
                 deposite_xlm += invest.ammount + invest.profit
+            elif invest.cryptos == "hbar":
+                deposite_hbar += invest.ammount + invest.profit
+            elif invest.cryptos == "xdc":
+                deposite_xdc += invest.ammount + invest.profit
+            elif invest.cryptos == "lcx":
+                deposite_lcx += invest.ammount + invest.profit
 
             if invest.trade_mode == "running":
                 total_active_investment_plans +=1
@@ -149,6 +194,9 @@ def update_dashboard_through_fund_acount(sender, instance, created, **kwargs):
     withdraw_usdt = 0.0
     withdraw_xlm = 0.0
     withdraw_xrp = 0.0
+    withdraw_hbar = 0.0
+    withdraw_xdc = 0.0
+    withdraw_lcx = 0.0
     each_withdraw = 0
     user_withdrawals = Withdrawal_transact.objects.filter(user=instance.user)
     for amount in user_withdrawals:
@@ -160,11 +208,20 @@ def update_dashboard_through_fund_acount(sender, instance, created, **kwargs):
                 withdraw_xlm += amount.ammount
             elif amount.crypto_for_pay == "xrp":
                 withdraw_xrp += amount.ammount
+            elif amount.crypto_for_pay == "hbar":
+                withdraw_hbar += amount.ammount
+            elif amount.crypto_for_pay == "xdc":
+                withdraw_xdc += amount.ammount
+            elif amount.crypto_for_pay == "lcx":
+                withdraw_lcx += amount.ammount
     # for Fund_user_wallet_account
     funded_amount = 0.00
     funded_usdt = 0.0
     funded_xlm = 0.0
     funded_xrp = 0.0
+    funded_hbar = 0.0
+    funded_xdc = 0.0
+    funded_lcx = 0.0
     user_fund = Fund_user_wallet_account.objects.filter(user=instance.user)
     for amount_fund in user_fund:
         funded_amount += amount_fund.amount
@@ -174,6 +231,12 @@ def update_dashboard_through_fund_acount(sender, instance, created, **kwargs):
             funded_xlm += amount_fund.amount
         elif amount_fund.crypto_types == "xrp":
             funded_xrp += amount_fund.amount
+        elif amount_fund.crypto_types == "hbar":
+            funded_hbar += amount_fund.amount
+        elif amount_fund.crypto_types == "xdc":
+            funded_xdc += amount_fund.amount
+        elif amount_fund.crypto_types == "lcx":
+            funded_lcx += amount_fund.amount
 
 
 
@@ -181,10 +244,16 @@ def update_dashboard_through_fund_acount(sender, instance, created, **kwargs):
     price_of_usdt = get_crypto_price("USDT")
     price_of_xlm =  get_crypto_price("XLM")
     price_of_xrp =  get_crypto_price("XRP")
+    price_of_hbar =  get_crypto_price("HBAR")
+    price_of_xdc =  get_crypto_price("XDC")
+    price_of_lcx =  get_crypto_price("LCX")
 
     total_usdt = deposite_usdt + funded_usdt - withdraw_usdt
     total_xlm = deposite_xlm + funded_xlm - withdraw_xlm
     total_xrp = deposite_xrp + funded_xrp - withdraw_xrp
+    total_hbar = deposite_hbar + funded_hbar - withdraw_hbar
+    total_xdc = deposite_xdc + funded_xdc - withdraw_xdc
+    total_lcx = deposite_lcx + funded_lcx - withdraw_lcx
 
 
     
@@ -197,8 +266,10 @@ def update_dashboard_through_fund_acount(sender, instance, created, **kwargs):
     user_dashboard.usdt = int(total_usdt)/float(price_of_usdt)
     user_dashboard.xlm =  int(total_xlm)/float(price_of_xlm)
     user_dashboard.xrp =  int(total_xrp)/float(price_of_xrp)
+    user_dashboard.hbar =  int(total_hbar)/float(price_of_hbar)
+    user_dashboard.xdc =  int(total_xdc)/float(price_of_xdc)
+    user_dashboard.lcx =  int(total_lcx)/float(price_of_lcx)
     user_dashboard.save()
-
 
 @receiver(post_save, sender=Withdrawal_transact)
 def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
@@ -208,6 +279,9 @@ def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
     deposite_usdt = 0.0
     deposite_xlm = 0.0
     deposite_xrp = 0.0
+    deposite_hbar = 0.0
+    deposite_xdc = 0.0
+    deposite_lcx = 0.0
     total_investment_plan = 0
     total_active_investment_plans = 0
     for invest in user_deposite:
@@ -221,6 +295,12 @@ def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
                 deposite_xrp += invest.ammount + invest.profit
             elif invest.cryptos == "xlm":
                 deposite_xlm += invest.ammount + invest.profit
+            elif invest.cryptos == "hbar":
+                deposite_hbar += invest.ammount + invest.profit
+            elif invest.cryptos == "xdc":
+                deposite_xdc += invest.ammount + invest.profit
+            elif invest.cryptos == "lcx":
+                deposite_lcx += invest.ammount + invest.profit
 
             if invest.trade_mode == "running":
                 total_active_investment_plans +=1
@@ -231,6 +311,9 @@ def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
     withdraw_usdt = 0.0
     withdraw_xlm = 0.0
     withdraw_xrp = 0.0
+    withdraw_hbar = 0.0
+    withdraw_xdc = 0.0
+    withdraw_lcx = 0.0
     each_withdraw = 0
     user_withdrawals = Withdrawal_transact.objects.filter(user=instance.user)
     for amount in user_withdrawals:
@@ -242,11 +325,20 @@ def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
                 withdraw_xlm += amount.ammount
             elif amount.crypto_for_pay == "xrp":
                 withdraw_xrp += amount.ammount
+            elif amount.crypto_for_pay == "hbar":
+                withdraw_hbar += amount.ammount
+            elif amount.crypto_for_pay == "xdc":
+                withdraw_xdc += amount.ammount
+            elif amount.crypto_for_pay == "lcx":
+                withdraw_lcx += amount.ammount
     # for Fund_user_wallet_account
     funded_amount = 0.00
     funded_usdt = 0.0
     funded_xlm = 0.0
     funded_xrp = 0.0
+    funded_hbar = 0.0
+    funded_xdc = 0.0
+    funded_lcx = 0.0
     user_fund = Fund_user_wallet_account.objects.filter(user=instance.user)
     for amount_fund in user_fund:
         funded_amount += amount_fund.amount
@@ -256,6 +348,12 @@ def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
             funded_xlm += amount_fund.amount
         elif amount_fund.crypto_types == "xrp":
             funded_xrp += amount_fund.amount
+        elif amount_fund.crypto_types == "hbar":
+            funded_hbar += amount_fund.amount
+        elif amount_fund.crypto_types == "xdc":
+            funded_xdc += amount_fund.amount
+        elif amount_fund.crypto_types == "lcx":
+            funded_lcx += amount_fund.amount
 
 
 
@@ -263,10 +361,16 @@ def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
     price_of_usdt = get_crypto_price("USDT")
     price_of_xlm =  get_crypto_price("XLM")
     price_of_xrp =  get_crypto_price("XRP")
+    price_of_hbar =  get_crypto_price("HBAR")
+    price_of_xdc =  get_crypto_price("XDC")
+    price_of_lcx =  get_crypto_price("LCX")
 
     total_usdt = deposite_usdt + funded_usdt - withdraw_usdt
     total_xlm = deposite_xlm + funded_xlm - withdraw_xlm
     total_xrp = deposite_xrp + funded_xrp - withdraw_xrp
+    total_hbar = deposite_hbar + funded_hbar - withdraw_hbar
+    total_xdc = deposite_xdc + funded_xdc - withdraw_xdc
+    total_lcx = deposite_lcx + funded_lcx - withdraw_lcx
 
 
     
@@ -279,4 +383,7 @@ def update_dashboard_through_withdraw(sender, instance, created, **kwargs):
     user_dashboard.usdt = int(total_usdt)/float(price_of_usdt)
     user_dashboard.xlm =  int(total_xlm)/float(price_of_xlm)
     user_dashboard.xrp =  int(total_xrp)/float(price_of_xrp)
+    user_dashboard.hbar =  int(total_hbar)/float(price_of_hbar)
+    user_dashboard.xdc =  int(total_xdc)/float(price_of_xdc)
+    user_dashboard.lcx =  int(total_lcx)/float(price_of_lcx)
     user_dashboard.save()

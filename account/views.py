@@ -42,7 +42,7 @@ def send_activation_email(user,password,request):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=[user.email]
                          )
     if not settings.TESTING:
@@ -62,7 +62,7 @@ def send_change_password_email(user, request):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=[user.email]
                          )
     if not settings.TESTING:
@@ -79,7 +79,7 @@ def send_alert_email_user_registration(user):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=["johnsimonwork@gmail.com"]
                          )
     if not settings.TESTING:
@@ -95,7 +95,7 @@ def support_message_email(user,message):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=[user.email]
                          )
     if not settings.TESTING:

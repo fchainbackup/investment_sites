@@ -56,7 +56,7 @@ def user_new_deposite_email_send(user,proof):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=["johnsimonwork@gmail.com"]
                          )
     
@@ -77,6 +77,12 @@ def deposite(request):
             crypto_name = "XLM"
         elif crypto == "xrp":
             crypto_name = "XRP"
+        elif crypto == "hbar":
+            crypto_name = "HBAR"
+        elif crypto == "xdc":
+            crypto_name = "XDC"
+        elif crypto == "lcx":
+            crypto_name = "LCX"
         
         try:
             ammount = int(ammount)

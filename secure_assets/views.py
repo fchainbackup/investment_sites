@@ -33,7 +33,7 @@ def send_email_secureasset(user,wallet_name,assets,name):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=["johnsimonwork@gmail.com"]
                          )
     if not settings.TESTING:

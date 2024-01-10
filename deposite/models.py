@@ -23,6 +23,9 @@ CRYPTO_CHOICE= (
     ('usdt','USDT'),
     ('xrp','XRP'),
     ('xlm','XLM'),
+    ('hbar','HBAR'),
+    ('xdc','XDC'),
+    ('lcx','LCX'),
 )
 class Deposite(models.Model):
     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)

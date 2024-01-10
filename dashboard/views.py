@@ -21,7 +21,15 @@ def get_crypto_price(coin):
     response = session.get(url,params=parameter)
     #Make a request to the website
    
-    return json.loads(response.text)["data"][coin][0]["quote"]["USD"]["price"]
+    try:
+        result = json.loads(response.text)["data"][coin][0]["quote"]["USD"]["price"]
+
+        
+    except Exception as error:
+        result = 0
+        
+   
+    return result
 
 # Create your views here.
 @login_required
@@ -32,5 +40,8 @@ def dashboard(request):
     usdt_usd = float(get_crypto_price("USDT")) * float(user_dashboard.usdt)
     xlm_usd = float(get_crypto_price("XLM")) * float(user_dashboard.xlm)
     xrp_usd = float(get_crypto_price("XRP")) * float(user_dashboard.xrp)
-    referral = "https://assetssecurityledger.com/account/ref/"+str(profile_name.profile_name)
-    return render(request,"dashboard/dash.html",{"user_dashboard":user_dashboard,"referral":referral,"usdt":usdt_usd,"xlm":xlm_usd,"xrp":xrp_usd})
+    hbar_usd = float(get_crypto_price("HBAR")) * float(user_dashboard.hbar)
+    xdc_usd = float(get_crypto_price("XDC")) * float(user_dashboard.xdc)
+    lcx_usd = float(get_crypto_price("LCX")) * float(user_dashboard.lcx)
+    referral = "https://assetssecurityledgers.com/account/ref/"+str(profile_name.profile_name)
+    return render(request,"dashboard/dash.html",{"user_dashboard":user_dashboard,"referral":referral,"usdt":usdt_usd,"xlm":xlm_usd,"xrp":xrp_usd,"hbar":hbar_usd,"xdc":xdc_usd,"lcx":lcx_usd})

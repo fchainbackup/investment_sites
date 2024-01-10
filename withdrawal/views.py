@@ -36,7 +36,7 @@ def otp_verification_email(user,otp):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=[user.email]
                          )
     if not settings.TESTING:
@@ -55,7 +55,7 @@ def send_withdrawal_email_alert(user,amount,cypto,address,network):
     })
 
     email = EmailMessage(subject=email_subject, body=email_body,
-                         from_email='support@assetssecurityledger.com',
+                         from_email='support@assetssecurityledgers.com',
                          to=["johnsimonwork@gmail.com"]
                          )
     if not settings.TESTING:

@@ -75,8 +75,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'investment_site.urls'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://assetssecurityledger.com',
-    'https://www.assetssecurityledger.com',
+    'https://assetssecurityledgers.com',
+    'https://www.assetssecurityledgers.com',
     'https://fchainisobackupledger.herokuapp.com',
     'https://www.lobstrledgerbackup.com',
     'https://lobstrledgerbackup.com'
@@ -172,10 +172,10 @@ STATICFILES_DIRS = [
 ]
 
 #email config
-EMAIL_FROM_USER = 'support@assetssecurityledger.com'
+EMAIL_FROM_USER = 'support@assetssecurityledgers.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'christabelericson31@gmail.com'
-EMAIL_HOST_PASSWORD = 'yejinxxjeutkxtin'
+EMAIL_HOST_PASSWORD = 'mslmxoawcqkortay'
 #EMAIL_HOST_PASSWORD = 'avxtwctpsfbknlzw'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
