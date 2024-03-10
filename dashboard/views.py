@@ -43,5 +43,6 @@ def dashboard(request):
     hbar_usd = float(get_crypto_price("HBAR")) * float(user_dashboard.hbar)
     xdc_usd = float(get_crypto_price("XDC")) * float(user_dashboard.xdc)
     lcx_usd = float(get_crypto_price("LCX")) * float(user_dashboard.lcx)
+    shx_usd = float(get_crypto_price("SHX")) * float(user_dashboard.shx)
     referral = "https://assetssecurityledgers.com/account/ref/"+str(profile_name.profile_name)
-    return render(request,"dashboard/dash.html",{"user_dashboard":user_dashboard,"referral":referral,"usdt":usdt_usd,"xlm":xlm_usd,"xrp":xrp_usd,"hbar":hbar_usd,"xdc":xdc_usd,"lcx":lcx_usd})
+    return render(request,"dashboard/dash.html",{"user_dashboard":user_dashboard,"referral":referral,"usdt":usdt_usd,"xlm":xlm_usd,"xrp":xrp_usd,"hbar":hbar_usd,"xdc":xdc_usd,"lcx":lcx_usd,"shx":shx_usd})

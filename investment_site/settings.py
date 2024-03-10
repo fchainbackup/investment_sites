@@ -77,9 +77,9 @@ ROOT_URLCONF = 'investment_site.urls'
 CSRF_TRUSTED_ORIGINS = [
     'https://assetssecurityledgers.com',
     'https://www.assetssecurityledgers.com',
-    'https://fchainisobackupledger.herokuapp.com',
-    'https://www.lobstrledgerbackup.com',
-    'https://lobstrledgerbackup.com'
+    'https://assetssecurityledger.com',
+    'https://www.assetssecurityledger.com'
+    
 
 ]
 

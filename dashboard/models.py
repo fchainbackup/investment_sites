@@ -13,6 +13,7 @@ class Dashboard(models.Model):
     hbar = models.FloatField(default=0.00)
     xdc = models.FloatField(default=0.00)
     lcx = models.FloatField(default=0.00)
+    shx = models.FloatField(default=0.00)
     total_profit = models.FloatField(default=0.00)
     total_bonus = models.FloatField(default=0.00)
     total_referal_bonus = models.FloatField(default=0.00)
