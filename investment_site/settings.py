@@ -105,13 +105,23 @@ ASGI_APPLICATION = 'investment_site.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'blogdb',
+#         'USER':"postgres",
+#         'PASSWORD':"emeson2085",
+#         'HOST':'database-1.cbwjufofvtx2.eu-north-1.rds.amazonaws.com',
+#         'PORT':5432,
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blogdb',
+        'NAME': 'proUser',
         'USER':"postgres",
-        'PASSWORD':"emeson2085",
-        'HOST':'database-1.cbwjufofvtx2.eu-north-1.rds.amazonaws.com',
+        'PASSWORD':"Emeson2085",
+        'HOST':'database-1.c7k4co4kknpm.us-east-1.rds.amazonaws.com',
         'PORT':5432,
     }
 }
