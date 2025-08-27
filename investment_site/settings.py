@@ -118,13 +118,15 @@ ASGI_APPLICATION = 'investment_site.asgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'proUser',
+        'NAME': 'postgres',
         'USER':"postgres",
-        'PASSWORD':"Emeson2085",
-        'HOST':'database-1.c7k4co4kknpm.us-east-1.rds.amazonaws.com',
+        'PASSWORD':"emeson2085",
+        'HOST':'database-1.cqpo0a4sgixi.us-east-1.rds.amazonaws.com',
         'PORT':5432,
     }
 }
+#mydatabase.c7k4co4kknpm.us-east-1.rds.amazonaws.com
+#database-1.cqpo0a4sgixi.us-east-1.rds.amazonaws.com
 
 #import dj_database_url
 #db_from_env = dj_database_url.config(conn_max_age=600)
@@ -185,8 +187,9 @@ STATICFILES_DIRS = [
 EMAIL_FROM_USER = 'support@assetssecurityledgers.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'christabelericson31@gmail.com'
-EMAIL_HOST_PASSWORD = 'mslmxoawcqkortay'
+EMAIL_HOST_PASSWORD = 'xcogfwfuoeyyzaop'
 #EMAIL_HOST_PASSWORD = 'avxtwctpsfbknlzw'
+# newapp = xcogfwfuoeyyzaop
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465     

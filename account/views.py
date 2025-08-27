@@ -18,6 +18,7 @@ from django.urls import reverse
 from django.conf import settings
 from .models import CustomUser,Profile
 from django.contrib.auth.forms import PasswordChangeForm
+import requests
 # Create your views here.
 
 
@@ -111,28 +112,39 @@ def register_user(request):
         user_form = UserAdminform(request.POST)
         # check whether it's valid:
         if user_form.is_valid():
-            if profile_id is not None:
-                recommended_profile = Profile.objects.get(id=profile_id)
-                password = user_form.cleaned_data['password1']
-                
-                user_reg = user_form.save()
-                registered_user = CustomUser.objects.get(id=user_reg.id)
-                registered_user_profile = Profile.objects.get(user=registered_user)
-                registered_user_profile.recommended_by = recommended_profile.user
-                registered_user_profile.save()
-                send_activation_email(user_reg,password,request)
-                messages.success(request,"Created! now login to continue")
-                return redirect('account:login_user')
-            else:
-                password = user_form.cleaned_data['password1']
-                
-                user_reg = user_form.save()
-                
-                
-                send_activation_email(user_reg,password,request)
-                messages.success(request,"Created! now login to continue")
-                return redirect('account:login_user')
+            recaptcha_response = request.POST.get('g-recaptcha-response')
+            data = {
+            'secret': '6LfYLFwrAAAAAEya0hhKgo0ADbiflAxSC-uAWJAT',  # from Google admin console
+            'response': recaptcha_response
+            }
+            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+            result = r.json()
+            if result.get('success'):
 
+                if profile_id is not None:
+                    recommended_profile = Profile.objects.get(id=profile_id)
+                    password = user_form.cleaned_data['password1']
+                    
+                    user_reg = user_form.save()
+                    registered_user = CustomUser.objects.get(id=user_reg.id)
+                    registered_user_profile = Profile.objects.get(user=registered_user)
+                    registered_user_profile.recommended_by = recommended_profile.user
+                    registered_user_profile.save()
+                    send_activation_email(user_reg,password,request)
+                    messages.success(request,"Created! now login to continue")
+                    return redirect('account:login_user')
+                else:
+                    password = user_form.cleaned_data['password1']
+                    
+                    user_reg = user_form.save()
+                    
+                    
+                    send_activation_email(user_reg,password,request)
+                    messages.success(request,"Created! now login to continue")
+                    return redirect('account:login_user')
+            else:
+                messages.error(request,'reCAPTCHA failed. Please try again.')
+                return render(request,"account/register.html",{"user_form":user_form})
             
     return render(request,"account/register.html",{"user_form":user_form})
 
